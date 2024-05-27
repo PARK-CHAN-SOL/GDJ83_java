@@ -1,5 +1,6 @@
 package com.PARK_CHAN_SOL.study1;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Study4 {
@@ -10,7 +11,15 @@ public class Study4 {
 		System.out.println("숫자를 입력하세요");// 0 이상의 정수
 
 		// 엔터칠 때 까지
-		int num = sc.nextInt();
+		int num = 0;
+		try {
+			num = sc.nextInt();
+		} catch (InputMismatchException e) {
+			System.out.println("잘못 입력하셨습니다.");
+			System.out.println("프로그램을 종료합니다.");
+			sc.close();
+			return;
+		}
 
 		int result = num % 4;
 		int i = 1;
