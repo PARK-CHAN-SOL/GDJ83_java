@@ -1,5 +1,6 @@
 package com.PARK_CHAN_SOL.study1;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Study8 {
@@ -21,8 +22,15 @@ public class Study8 {
 
 			System.out.println("사격 모드를 선택하세요. (탄창: " + (i + 1) + " / " + tan + ")");
 			System.out.println("1: 단발, 2: 점사");
+			int mode = 1;
 
-			int mode = sc.nextInt();
+			try {
+				mode = sc.nextInt();
+			} catch (InputMismatchException e) {
+				sc = new Scanner(System.in);
+				System.out.println("잘못 선택하셨습니다.");
+				System.out.println("기본 사격 모드로 사격합니다.(단발)");
+			}
 
 			if (mode == 1) {
 				System.out.println("단발 모드로 사격합니다.");
@@ -33,7 +41,6 @@ public class Study8 {
 			} else {
 				System.out.println("잘못 선택하셨습니다.");
 				System.out.println("기본 사격 모드로 사격합니다.(단발)");
-				mode = 1;
 			}
 
 			for (int j = 0; j < 30; j += mode) {
