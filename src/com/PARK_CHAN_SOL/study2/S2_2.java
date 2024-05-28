@@ -145,7 +145,7 @@ public class S2_2 {
 						System.out.print(": ");
 						searchIndex = sc.nextInt();
 						sc.nextLine();
-						if (searchIndex > (i - 1)) {
+						if (searchIndex > (i)) {
 							System.out.println("");
 							System.out.println("해당 번호를 가진 학생은 존재하지 않습니다.");
 							System.out.println("");
@@ -176,21 +176,12 @@ public class S2_2 {
 					// else if(pc == 3)
 			} else {// (pc == 4)
 				int[] studentIdTmp = new int[i];
-				String[] studentNamesTmp = new String[i];
-				int[] korScoresTmp = new int[i];
-				int[] engScoresTmp = new int[i];
-				int[] mathScoresTmp = new int[i];
 				int[] totalsTmp = new int[i];
-				double[] avgsTmp = new double[i];
 
 				for (int j = 0; j < i; j++) {
 					studentIdTmp[j] = studentId[j];
-					studentNamesTmp[j] = studentNames[j];
-					korScoresTmp[j] = korScores[j];
-					engScoresTmp[j] = engScores[j];
-					mathScoresTmp[j] = mathScores[j];
 					totalsTmp[j] = totals[j];
-					avgsTmp[j] = avgs[j];
+
 				}
 				for (int j = 0; j < i - 1; j++) {
 					for (int k = 0; k < i - 1 - j; k++) {
@@ -198,30 +189,10 @@ public class S2_2 {
 							int tmp = studentIdTmp[k];
 							studentIdTmp[k] = studentIdTmp[k + 1];
 							studentIdTmp[k + 1] = tmp;
-
-							String tmps = studentNamesTmp[k];
-							studentNamesTmp[k] = studentNamesTmp[k + 1];
-							studentNamesTmp[k + 1] = tmps;
-
-							tmp = korScoresTmp[k];
-							korScoresTmp[k] = korScoresTmp[k + 1];
-							korScoresTmp[k + 1] = tmp;
-
-							tmp = engScoresTmp[k];
-							engScoresTmp[k] = engScoresTmp[k + 1];
-							engScoresTmp[k + 1] = tmp;
-
-							tmp = mathScoresTmp[k];
-							mathScoresTmp[k] = mathScoresTmp[k + 1];
-							mathScoresTmp[k + 1] = tmp;
-
+					
 							tmp = totalsTmp[k];
 							totalsTmp[k] = totalsTmp[k + 1];
 							totalsTmp[k + 1] = tmp;
-
-							double tmpd = avgsTmp[k];
-							avgsTmp[k] = avgsTmp[k + 1];
-							avgsTmp[k + 1] = tmpd;
 						}
 					}
 				}
@@ -229,13 +200,13 @@ public class S2_2 {
 				System.out.println("번호\t 이름 \t국어 점수\t영어 점수\t수학 점수\t 총점\t 평균");
 				for (int j = 0; j < i; j++) {
 
-					System.out.print(" " + studentIdTmp[j] + "\t");
-					System.out.print(" " + studentNamesTmp[j] + "\t");
-					System.out.print(" " + korScoresTmp[j] + "\t");
-					System.out.print(" " + engScoresTmp[j] + "\t");
-					System.out.print(" " + mathScoresTmp[j] + "\t");
-					System.out.print(" " + totalsTmp[j] + "\t");
-					System.out.println(" " + avgsTmp[j] + "\t");
+					System.out.print(" " + studentId[studentIdTmp[j]-1] + "\t");
+					System.out.print(" " + studentNames[studentIdTmp[j]-1] + "\t");
+					System.out.print(" " + korScores[studentIdTmp[j]-1] + "\t");
+					System.out.print(" " + engScores[studentIdTmp[j]-1] + "\t");
+					System.out.print(" " + mathScores[studentIdTmp[j]-1] + "\t");
+					System.out.print(" " + totals[studentIdTmp[j]-1] + "\t");
+					System.out.println(" " + avgs[studentIdTmp[j]-1] + "\t");
 
 				}
 				System.out.println("");
