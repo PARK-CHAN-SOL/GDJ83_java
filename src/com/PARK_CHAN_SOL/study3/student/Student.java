@@ -18,6 +18,6 @@ public class Student {
 	// 소괄호까지를 메서드의 헤더 또는 선언부, 중괄호 부분을 바디
 	public void info() {
 		int num = 10;
-		System.out.println("info() 실행됨");
+		System.out.println("info() 실행됨, num: " + num);
 	}
 }
