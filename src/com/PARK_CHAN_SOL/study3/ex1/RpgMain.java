@@ -10,17 +10,17 @@ public class RpgMain {
 		gob1.exp = 10;
 		gob1.name = "gob1";
 		
-		Weapon axe = new Weapon();
-		axe.atkDamage = 3;
-		axe.atkRange = 1;
-		axe.durability = 100;
-		axe.enchantLevel = 0;
-		axe.name = "이빨 빠진 도끼";
+		Weapon axe22 = new Weapon();
+		axe22.atkDamage = 3;
+		axe22.atkRange = 1;
+		axe22.durability = 100;
+		axe22.enchantLevel = 0;
+		axe22.name = "이빨 빠진 도끼";
 		
-		gob1.axe = axe;
+		gob1.axe = axe22;
 		
-		axe = new Weapon();
-		axe.name = "황금도끼";
+		axe22 = new Weapon();
+		axe22.name = "황금도끼";
 		
 //		gob1.axe.atkDamage = 3;
 //		gob1.axe.atkRange = 1;
@@ -40,7 +40,7 @@ public class RpgMain {
 		System.out.println("");
 
 		Monster gob2 = new Monster();
-		gob2.axe = axe; // gob2.axe.name => 황금도끼
+		gob2.axe = axe22; // gob2.axe.name => 황금도끼
 		
 	}
 
