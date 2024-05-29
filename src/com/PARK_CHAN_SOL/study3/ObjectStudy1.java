@@ -1,10 +1,13 @@
 package com.PARK_CHAN_SOL.study3;
 
-import com.PARK_CHAN_SOL.study3.student.Student;
+//import com.PARK_CHAN_SOL.study3.student.Student;
 
 public class ObjectStudy1 {
 
 	public static void main(String[] args) {
+		
+		StudyReturn sr = new StudyReturn();
+		sr.t1();
 //		// 학생 객체 생성
 //		// new 클래스명(); -> 객체의 주소가 반환
 //		Student s = new Student();
