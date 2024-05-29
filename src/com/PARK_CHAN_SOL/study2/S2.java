@@ -2,8 +2,10 @@ package com.PARK_CHAN_SOL.study2;
 
 public class S2 {
 	public static void main(String[] args) {
-		
+		// 더이상 분해할 수 없는 데이터 타입
 		// 1. primitive type: byte, short, int, long, float, double, char, boolean
+		
+		// 변수에 실제 데이터가 들어있는 게 아니라 데이터를 가리키는 주소가 들어있는 데이터 타입
 		// 2. reference type: String, ...
 		
 		// 자바의 메모리 영역 구분
