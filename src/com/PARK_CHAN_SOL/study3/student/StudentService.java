@@ -5,6 +5,52 @@ import java.util.Scanner;
 
 public class StudentService {
 
+	// findByNum 일치하는 학생의 객체를 리턴
+
+	public Student[] findByNum(Student[] students, Scanner sc) {
+		if(students == null) {
+			return students;
+		}
+		int count = 0;
+		int yourNum = 0;
+		Student[] studentsFound = new Student[students.length];
+
+		while (true) {
+			try {
+				System.out.println("");
+				System.out.println("찾으려고 하는 학생의 번호를 입력하세요 (1이상의 정수)");
+				System.out.print(": ");
+				yourNum = sc.nextInt();
+				sc.nextLine();
+				if (yourNum <= 0) {
+					throw new InputMismatchException();
+				}
+				break;
+			} catch (InputMismatchException e) {
+				sc = new Scanner(System.in);
+			}
+		} //whlie try catch - yourNum
+		
+		
+		for(int i = 0; i < students.length; i++) {
+			if(yourNum == students[i].num) {
+				studentsFound[count] = students[i];
+				count++;
+			}
+		}
+		
+		students = new Student[count];
+		if (count == 0) {
+			students = null;
+		}
+		for(int i = 0; i < count; i++) {
+			students[i] = studentsFound[i];
+		}
+		
+
+		return students;
+	}
+
 	public Student[] makeStudent(Scanner sc) {
 		System.out.println("");
 		System.out.println("학생의 수를 입력하세요");
@@ -56,11 +102,14 @@ public class StudentService {
 					System.out.print(s.name + "의 번호 입력\t: ");
 					s.num = sc.nextInt();
 					sc.nextLine();
+					if (s.num <= 0) {
+						throw new InputMismatchException();
+					}
 					break;
 				} catch (InputMismatchException e) {
 					sc = new Scanner(System.in);
 				}
-			}//while try catch - s.num
+			} // while try catch - s.num
 
 			while (true) {
 				try {
@@ -73,7 +122,7 @@ public class StudentService {
 				} catch (InputMismatchException e) {
 					sc = new Scanner(System.in);
 				}
-			}//while try catch - s.kor
+			} // while try catch - s.kor
 
 			while (true) {
 				try {
@@ -86,7 +135,7 @@ public class StudentService {
 				} catch (InputMismatchException e) {
 					sc = new Scanner(System.in);
 				}
-			}//while try catch - s.eng
+			} // while try catch - s.eng
 
 			while (true) {
 				try {
@@ -99,12 +148,12 @@ public class StudentService {
 				} catch (InputMismatchException e) {
 					sc = new Scanner(System.in);
 				}
-			}//while try catch - s.math
+			} // while try catch - s.math
 			System.out.println("");
 
 			s.total = s.kor + s.eng + s.math;
 			s.avg = s.total / 3.0;
-			
+
 			students[i] = s;
 		}
 
