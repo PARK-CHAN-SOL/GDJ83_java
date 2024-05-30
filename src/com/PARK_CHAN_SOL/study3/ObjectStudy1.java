@@ -5,9 +5,19 @@ package com.PARK_CHAN_SOL.study3;
 public class ObjectStudy1 {
 
 	public static void main(String[] args) {
-		
+
 		StudyReturn sr = new StudyReturn();
 		sr.t1();
+
+		int sal = 5000000;
+		sr.t4(sal);
+		System.out.println(sal);
+
+		Test test = new Test();
+		test.level = 1;
+		Test test2 = sr.t5(test);
+		System.out.println("test.level: " + test.level);
+		System.out.println("test2.level: " + test2.level);
 //		// 학생 객체 생성
 //		// new 클래스명(); -> 객체의 주소가 반환
 //		Student s = new Student();
