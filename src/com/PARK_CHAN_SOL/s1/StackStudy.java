@@ -13,7 +13,7 @@ public class StackStudy {
 			tmpArr[i + 1] = intArr[i];
 		}
 		Random random = new Random();
-		tmpArr[0] = (random.nextInt(10)+1);
+		tmpArr[0] = (random.nextInt(9)+1);
 		intArr = tmpArr;
 		return intArr;
 	}

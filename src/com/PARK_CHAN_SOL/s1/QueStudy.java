@@ -13,17 +13,17 @@ public class QueStudy {
 			tmpArr[i + 1] = intArr[i];
 		}
 		Random random = new Random();
-		tmpArr[0] = (random.nextInt(10)+1);
+		tmpArr[0] = (random.nextInt(9)+1);
 		intArr = tmpArr;
 		return intArr;
 	}
 
 	public static int[] remove(int[] intArr) {
-		// 맨enl의 요소를 삭제하고
+		// 맨뒤의 요소를 삭제하고
 		// 삭제된 배열을 리턴
 		int[] tmpArr = new int[intArr.length-1];
-		for (int i = 1; i < intArr.length; i++) {
-			tmpArr[i] = intArr[i-1];
+		for (int i = 0; i < intArr.length-1; i++) {
+			tmpArr[i] = intArr[i];
 		}
 		intArr = tmpArr;
 		return intArr;
