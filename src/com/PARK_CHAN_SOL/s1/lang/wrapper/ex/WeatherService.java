@@ -5,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class WeatherService {
 
@@ -25,10 +27,25 @@ public class WeatherService {
 		String info = this.sb.toString();
 		info = info.replace(',', '-');
 
+//		WeatherDTO[] wDTOs = this.getWeatherDTOs(info);
 		WeatherDTO[] wDTOs = this.getWeatherDTOs(info);
 		return wDTOs;
 	}
 
+	private ArrayList<WeatherDTO> useTokenizer(String info) {
+		StringTokenizer st = new StringTokenizer(info, "-");
+		ArrayList<WeatherDTO> wDTOs = new ArrayList<WeatherDTO>();
+		while(st.hasMoreElements()) {
+			WeatherDTO weatherDTO = new WeatherDTO();
+			weatherDTO.setCity(st.nextToken().trim());
+			weatherDTO.setGion(Double.parseDouble(st.nextToken().trim()));
+			weatherDTO.setStatus(st.nextToken().trim());
+			weatherDTO.setHumidity(Integer.parseInt(st.nextToken().trim()));
+			wDTOs.add(weatherDTO);
+		}
+		return wDTOs;
+	}
+	
 	private WeatherDTO[] getWeatherDTOs(String info) {
 		String[] infoArr = info.split("-");
 		for (int i = 0; i < infoArr.length; i++) {
