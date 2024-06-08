@@ -51,6 +51,8 @@ public class BusinessCardController {
 				} else {
 					System.out.println("\n해당 이름이 존재하지 않습니다\n");
 				}
+			} else {
+				System.out.println("\n프로그램종료");
 			}
 		}
 	}

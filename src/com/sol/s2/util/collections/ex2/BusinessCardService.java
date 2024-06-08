@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.util.regex.Pattern;
 
 public class BusinessCardService {
 
@@ -11,7 +12,7 @@ public class BusinessCardService {
 
 	public BusinessCardService() {
 		sb = new StringBuffer();
-		sb.append("김철수 구디아카데미 010-1234-5678 abc@naver.com");
+		sb.append("김철수 구디 010-1234-5678 abc@naver.com");
 		sb.append(" 이영희 국정원 010-9999-9999 kkk@KIC.go.kr");
 		sb.append(" 박박박 토스 010-7777-7777 parkpp@toss.com");
 		sb.append(" 최양락 kbs 010-8888-6666 cyr@kbs.co.kr");
@@ -41,38 +42,31 @@ public class BusinessCardService {
 		while (true) {
 //			int flagPhone = 0;
 			System.out.print("전화번호를 입력하세요 (000-0000-0000) \n:");
-			StringTokenizer st = new StringTokenizer(sc.next(), "-");
-			StringBuffer addSb = new StringBuffer();
-			if (st.countTokens() != 3) {
+			String phoneNum = sc.next();
+			boolean regexChk = Pattern.matches("^01([0|1|6|7|8|9])-([0-9]{3,4})-([0-9]{4})+$", phoneNum);
+			if(!regexChk) {
+				regexChk = Pattern.matches("^\\+82-01([0|1|6|7|8|9])-([\\d]{3,4})-([\\d]{4})+$", phoneNum);
+			}
+			if(!regexChk) {
+				regexChk = Pattern.matches("^\\+82-10-([\\d]{3,4})-([\\d]{4})+$", phoneNum);
+			}
+			if (!regexChk) {
 				System.out.println("잘못입력하셨습니다2");
 				continue;
 			}
-			addSb.append(st.nextToken().trim()).append("-").append(st.nextToken().trim()).append("-")
-					.append(st.nextToken().trim());
-//			if (addSb.length() != 13) {
-//				System.out.println("잘못입력하셨습니다3");
-//				addSb.delete(0, addSb.length());
-//				continue;
-//			}
-//			for (int i = 0; i < addSb.length(); i++) {
-//				if (i == 3 || i == 8) {
-//					continue;
-//				}
-//				if (!(addSb.charAt(i) >= '0' && addSb.charAt(i) <= '9')) {
-//					flagPhone = 1;
-//					System.out.println("잘못입력하셨습니다4");
-//					break;
-//				}
-//			}
-//			if (flagPhone == 1) {
-//				continue;
-//			}
-			bDTO.setPhone(sb.toString());
+			bDTO.setPhone(phoneNum);
 			break;
 		}
 		while (true) {
 			System.out.print("이메일을 입력하세요 (abc@dddd.com)\n:");
-			bDTO.setEmail(sc.next());
+			String emailAddress = sc.next();
+			
+			boolean regexChk = Pattern.matches("\\w+@\\w+.\\w+(\\.\\w+)?", emailAddress);
+			if(!regexChk) {
+				System.out.println("잘못입력하셨습니다3");
+				continue;
+			}
+			bDTO.setEmail(emailAddress);
 			break;
 		}
 
