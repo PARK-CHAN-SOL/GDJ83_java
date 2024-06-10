@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 public class BusinessCardController {
 	private Scanner sc;
-	private StringBuffer sb;
-
 	public BusinessCardController() {
 		sc = new Scanner(System.in);
 	}

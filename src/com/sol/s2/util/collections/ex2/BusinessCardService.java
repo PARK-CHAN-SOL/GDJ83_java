@@ -1,7 +1,6 @@
 package com.sol.s2.util.collections.ex2;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
@@ -74,8 +73,6 @@ public class BusinessCardService {
 	}
 
 	public int removeBusinessCard(Scanner sc, ArrayList<BusinessCardDTO> bDTOs) {
-		BusinessCardDTO bDTO = new BusinessCardDTO();
-
 		System.out.print("삭제할 이름을 입력하세요\n:");
 		String name = sc.next();
 
